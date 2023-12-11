@@ -17,6 +17,9 @@ const Aside: React.FC = () => {
 				<Menu.Item key='/'>
 					<Link to='/'>Todo List</Link>
 				</Menu.Item>
+				<Menu.Item key='/gallery'>
+					<Link to='/gallery'>Gallery</Link>
+				</Menu.Item>
 				<Menu.Item key='/about'>
 					<Link to='/about'>About Us</Link>
 				</Menu.Item>

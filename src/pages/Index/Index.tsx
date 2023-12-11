@@ -1,22 +1,27 @@
-import { Button, Input } from 'antd'
+import { Button, DatePicker, Input } from 'antd'
 import { FC, useState } from 'react'
-import CustomLayout from '../../components/CustomLayout/CustomLayout'
 import EditTaskModal from '../../components/EditTaskModal/EditTaskModal'
 import TaskList from '../../components/TaskList/TaskList'
 import styles from './Index.module.scss'
+import dayjs, { Dayjs } from 'dayjs'
+import { ITask } from './../../types/types'
 
 const Index: FC = () => {
-	const [task, setTask] = useState<string>('')
-	const [tasks, setTasks] = useState<string[]>([])
+	const [taskText, setTaskText] = useState<string>('')
+	const [taskDate, setTaskDate] = useState<Dayjs | null>(null)
+	const [tasks, setTasks] = useState<ITask[]>([])
+
 	const [modalVisible, setModalVisible] = useState<boolean>(false)
-	const [editedTask, setEditedTask] = useState<string>('')
+
+	const [editedTask, setEditedTask] = useState<ITask | null>(null)
 	const [editedTaskIndex, setEditedTaskIndex] = useState<number | null>(null)
 	const [searchTerm, setSearchTerm] = useState<string>('')
 
 	const addTask = () => {
-		if (task.trim() !== '') {
-			setTasks([...tasks, task])
-			setTask('')
+		if (taskText.trim() !== '' && taskDate) {
+			setTasks([...tasks, { text: taskText, date: taskDate }])
+			setTaskText('')
+			setTaskDate(null)
 		}
 	}
 
@@ -34,25 +39,30 @@ const Index: FC = () => {
 
 	const closeEditModal = () => {
 		setModalVisible(false)
-		setEditedTask('')
+		setEditedTask(null)
 		setEditedTaskIndex(null)
 	}
 
-	const saveEditedTask = (editedTask: string) => {
-		if (editedTask.trim() !== '') {
+	const saveEditedTask = (newTask: ITask | null) => {
+		if (newTask && newTask.text.trim() !== '') {
 			const updatedTasks = [...tasks]
-			updatedTasks[editedTaskIndex as number] = editedTask
+			updatedTasks[editedTaskIndex as number] = {
+				...newTask,
+				text: newTask.text.trim(),
+			}
 			setTasks(updatedTasks)
 			closeEditModal()
+			return updatedTasks[editedTaskIndex as number]
 		}
+		return null
 	}
 
 	const filteredTasks = tasks.filter(task =>
-		task.toLowerCase().includes(searchTerm.toLowerCase()),
+		task.text.toLowerCase().includes(searchTerm.toLowerCase()),
 	)
 
 	return (
-		<CustomLayout title={'Todo List'}>
+		<>
 			<div className={styles.header}>
 				<Input
 					placeholder='Search tasks'
@@ -63,8 +73,17 @@ const Index: FC = () => {
 				<div className={styles.add}>
 					<Input
 						placeholder='Enter a new task'
-						value={task}
-						onChange={e => setTask(e.target.value)}
+						value={taskText}
+						onChange={e => setTaskText(e.target.value)}
+						className={styles.input}
+					/>
+					<DatePicker
+						placeholder='Select date'
+						value={taskDate ? dayjs(taskDate, 'DD.MM.YYYY') : null}
+						format={'DD.MM.YYYY'}
+						onChange={date =>
+							setTaskDate(date ? dayjs(date, 'DD.MM.YYYY') : null)
+						}
 						className={styles.input}
 					/>
 					<Button type='primary' onClick={addTask}>
@@ -83,7 +102,7 @@ const Index: FC = () => {
 				onCancel={closeEditModal}
 				initialTask={editedTask}
 			/>
-		</CustomLayout>
+		</>
 	)
 }
 

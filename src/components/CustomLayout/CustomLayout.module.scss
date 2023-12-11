@@ -1,7 +1,17 @@
-.header,
-.footer {
+.layout {
+	min-height: 100vh;
+}
+
+.header {
 	background-color: #001529;
 	color: #fff;
 	font-size: 32px;
 	font-weight: bold;
+}
+
+.content {
+	margin: 16px;
+	overflow: hidden;
+	height: 100%;
+	/* width: 100%; */
 }

@@ -1,0 +1,37 @@
+.footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	background-color: #001529;
+	color: #fff;
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.qr {
+	padding: 0;
+	margin: 0;
+}
+
+.statistic {
+	div {
+		color: #fff !important;
+	}
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 40%;
+}
+
+.col {
+	width: 30%;
+}
+
+.rate {
+	display: flex;
+}

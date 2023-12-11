@@ -1,0 +1,22 @@
+.images {
+	display: grid;
+	grid-template-columns: repeat(4, 200px);
+	grid-template-rows: repeat(3, 200px);
+	grid-auto-flow: column;
+
+	border: 1px solid #ddd;
+
+	gap: 1px;
+
+	div:first-child {
+		grid-row: span 2;
+		grid-column: span 2;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}

@@ -1,0 +1,27 @@
+.listItem {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	width: 100%;
+}
+
+.text {
+	width: 80%;
+	display: inline-block;
+}
+
+.date {
+	width: 5%;
+	display: inline-block;
+	text-align: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	width: 15%;
+}
+
+.button {
+	margin-right: 8px;
+}
