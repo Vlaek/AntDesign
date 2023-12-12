@@ -1,7 +1,46 @@
-import { Pagination, PaginationProps } from 'antd'
+import { Col, Pagination, PaginationProps, Row } from 'antd'
 import { FC, useState } from 'react'
+import { CardProfile } from '../../components/CardProfile/CardProfile'
+import { CardProject } from '../../components/CardProject/CardProject'
+import Information from '../../components/Information/Information'
 import styles from './About.module.scss'
-import { data } from './data'
+import { cardsProfileArray, cardsProjectsArray } from './data'
+
+const data = [
+	<Information />,
+	<div className={styles.article}>
+		<div className={styles.header}>Our Team</div>
+		<div className={styles.cards}>
+			{cardsProfileArray.map(item => (
+				<CardProfile
+					key={item.src}
+					src={item.src}
+					title={item.title}
+					text={item.text}
+					subtitle={'lorem@mail.com'}
+					link={'https://ant.design'}
+				/>
+			))}
+		</div>
+	</div>,
+	<div className={styles.article}>
+		<div className={styles.header}>Our Works</div>
+		<div className={styles.main}>
+			<Row gutter={[32, 32]} className={styles.row}>
+				{cardsProjectsArray.map(item => (
+					<Col span={10} offset={1} className={styles.col} key={item.link}>
+						<CardProject
+							src={item.src}
+							title={item.title}
+							subtitle={item.subtitle}
+							link={item.link}
+						/>
+					</Col>
+				))}
+			</Row>
+		</div>
+	</div>,
+]
 
 const About: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
