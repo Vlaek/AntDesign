@@ -1,0 +1,23 @@
+.img {
+	display: 'block';
+	width: 270px;
+	height: 258px;
+}
+
+.card {
+	width: 620px;
+	height: 260px;
+	margin-bottom: 20px;
+
+	&:nth-child(even) {
+		align-self: flex-end;
+
+		.flex {
+			flex-direction: row-reverse;
+
+			.button {
+				margin-right: auto;
+			}
+		}
+	}
+}

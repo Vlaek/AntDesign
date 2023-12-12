@@ -6,8 +6,13 @@ import { data } from './data'
 const About: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
 
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
+
 	const onChange: PaginationProps['onChange'] = page => {
 		setCurrentPage(page)
+		scrollToTop()
 	}
 
 	return (

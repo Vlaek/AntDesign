@@ -15,7 +15,7 @@ const MyFooter: FC = () => {
 	const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful']
 
 	useEffect(() => {
-		const interval = setInterval(() => setCount(prev => prev + 523), 1800000)
+		const interval = setInterval(() => setCount(prev => prev + 523), 180000)
 
 		return () => clearInterval(interval)
 	}, [])
@@ -47,10 +47,6 @@ const MyFooter: FC = () => {
 					className={styles.rate}
 				/>
 			</div>
-			{/* <Row gutter={16}>
-				
-			</Row> */}
-
 			<QRCode
 				value={'https://github.com/Vlaek'}
 				size={100}
