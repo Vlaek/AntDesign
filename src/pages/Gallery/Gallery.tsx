@@ -5,9 +5,7 @@ import { images } from './data'
 
 const Gallery: FC = () => {
 	return (
-		// <CustomLayout title={'Gallery'}>
 		<>
-			{' '}
 			<Image.PreviewGroup
 				preview={{
 					onChange: (current, prev) =>
@@ -28,7 +26,6 @@ const Gallery: FC = () => {
 				</div>
 			</Image.PreviewGroup>
 		</>
-		// </CustomLayout>
 	)
 }
 
