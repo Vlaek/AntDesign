@@ -9,8 +9,7 @@ import { useLocation } from 'react-router-dom'
 const { Header, Content } = Layout
 
 interface LayoutProps {
-	children: React.ReactNode
-	title: string
+	children: React.ReactNodeArray
 }
 
 const titles = {
