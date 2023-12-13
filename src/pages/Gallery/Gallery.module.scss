@@ -20,3 +20,14 @@
 	align-items: center;
 	height: 100%;
 }
+
+.carousel {
+	width: 100%;
+	padding: 20px 0;
+	/* background-color: #001529; */
+
+	button {
+		background-color: #001529 !important;
+		height: 5px !important;
+	}
+}

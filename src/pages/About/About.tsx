@@ -10,17 +10,20 @@ const data = [
 	<Information />,
 	<div className={styles.article}>
 		<div className={styles.header}>Our Team</div>
-		<div className={styles.cards}>
-			{cardsProfileArray.map(item => (
-				<CardProfile
-					key={item.src}
-					src={item.src}
-					title={item.title}
-					text={item.text}
-					subtitle={'lorem@mail.com'}
-					link={'https://ant.design'}
-				/>
-			))}
+		<div className={styles.main}>
+			<Row gutter={[32, 32]} className={styles.row}>
+				{cardsProfileArray.map(item => (
+					<Col span={10} offset={1} className={styles.col} key={item.src}>
+						<CardProfile
+							key={item.src}
+							src={item.src}
+							title={item.title}
+							text={item.text}
+							subtitle={'lorem@mail.com'}
+						/>
+					</Col>
+				))}
+			</Row>
 		</div>
 	</div>,
 	<div className={styles.article}>
@@ -28,13 +31,8 @@ const data = [
 		<div className={styles.main}>
 			<Row gutter={[32, 32]} className={styles.row}>
 				{cardsProjectsArray.map(item => (
-					<Col span={10} offset={1} className={styles.col} key={item.link}>
-						<CardProject
-							src={item.src}
-							title={item.title}
-							subtitle={item.subtitle}
-							link={item.link}
-						/>
+					<Col span={10} offset={1} className={styles.col} key={item.github}>
+						<CardProject project={item} />
 					</Col>
 				))}
 			</Row>

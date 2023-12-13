@@ -1,13 +1,18 @@
-.img {
-	display: 'block';
+.image {
 	width: 270px;
-	height: 258px;
+	height: 260px;
+	border: 1px solid #ddd;
+}
+
+.img {
+	width: 270px;
+	height: 260px;
 }
 
 .card {
-	width: 620px;
-	height: 260px;
-	margin-bottom: 20px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 
 	&:nth-child(even) {
 		align-self: flex-end;
@@ -20,4 +25,33 @@
 			}
 		}
 	}
+}
+
+.information {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 260px;
+	width: 100%;
+	padding: 0 10px 0 20px;
+}
+
+.button {
+	margin-left: auto;
+}
+
+.container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.title {
+	font-size: 32px !important;
+}
+
+.text,
+.title {
+	padding: 0 !important;
+	margin-bottom: 15px !important;
 }

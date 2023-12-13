@@ -1,43 +1,51 @@
-import { FC } from 'react'
-import { Card, Typography, Button } from 'antd'
+import { FC, useState } from 'react'
+import { Card, Typography } from 'antd'
 import styles from './CardProject.module.scss'
+import CardProjectModal from '../CardProjectModal/CardProjectModal'
+import { IProject } from '../../types/types'
 
 interface CardProjectProps {
-	src: string
-	title: string
-	subtitle: string
-	link: string
+	project: IProject
 }
 
-export const CardProject: FC<CardProjectProps> = ({
-	src,
-	title,
-	subtitle,
-	link,
-}) => {
+export const CardProject: FC<CardProjectProps> = ({ project }) => {
+	const [modalVisible, setModalVisible] = useState<boolean>(false)
+
+	const openModal = () => {
+		setModalVisible(true)
+	}
+
+	const closeModal = () => {
+		setModalVisible(false)
+	}
+
 	return (
 		<Card hoverable className={styles.card}>
-			<div className={styles.container}>
-				<img alt='avatar' src={src} className={styles.img} draggable={false} />
+			<div className={styles.container} onClick={() => openModal()}>
+				<div className={styles.image}>
+					<img
+						alt='project'
+						src={project.img}
+						className={styles.img}
+						draggable={false}
+					/>
+				</div>
 				<div className={styles.information}>
 					<div>
 						<Typography.Title className={styles.title} level={3}>
-							{title}
+							{project.title}
 						</Typography.Title>
 						<Typography.Paragraph className={styles.text}>
-							{subtitle}
+							{project.subtitle}
 						</Typography.Paragraph>
 					</div>
-					<Button
-						type='primary'
-						href={link}
-						target='_blank'
-						className={styles.button}
-					>
-						Get Started
-					</Button>
 				</div>
 			</div>
+			<CardProjectModal
+				visible={modalVisible}
+				onCancel={closeModal}
+				project={project}
+			/>
 		</Card>
 	)
 }
