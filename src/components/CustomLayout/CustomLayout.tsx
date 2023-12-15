@@ -16,6 +16,8 @@ const titles = {
 	'/': 'Todo List',
 	'/gallery': 'Gallery',
 	'/about': 'About Us',
+	'/team': 'Our Team',
+	'/projects': 'Our Works',
 }
 
 const CustomLayout: FC<LayoutProps> = ({ children }) => {

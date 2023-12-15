@@ -23,6 +23,12 @@ const Aside: React.FC = () => {
 				<Menu.Item key='/about'>
 					<Link to='/about'>About Us</Link>
 				</Menu.Item>
+				<Menu.Item key='/team'>
+					<Link to='/team'>Team</Link>
+				</Menu.Item>
+				<Menu.Item key='/projects'>
+					<Link to='/projects'>Projects</Link>
+				</Menu.Item>
 			</Menu>
 		</Sider>
 	)
