@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom'
 const { Header, Content } = Layout
 
 interface LayoutProps {
-	children: React.ReactNode[]
+	children: React.ReactNode
 }
 
 interface Titles {
