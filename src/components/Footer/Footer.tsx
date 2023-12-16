@@ -4,8 +4,8 @@ import { Footer } from 'antd/es/layout/layout'
 import styles from './Footer.module.scss'
 import CountUp from 'react-countup'
 
-const formatter = (value: number) => (
-	<CountUp end={value} separator='.' style={{ color: 'white' }} />
+const formatter = (value: React.ReactNode) => (
+	<CountUp end={Number(value)} separator='.' style={{ color: 'white' }} />
 )
 
 const MyFooter: FC = () => {

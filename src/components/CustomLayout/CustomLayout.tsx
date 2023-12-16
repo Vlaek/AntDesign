@@ -9,10 +9,14 @@ import { useLocation } from 'react-router-dom'
 const { Header, Content } = Layout
 
 interface LayoutProps {
-	children: React.ReactNodeArray
+	children: React.ReactNode[]
 }
 
-const titles = {
+interface Titles {
+	[key: string]: string
+}
+
+const titles: Titles = {
 	'/': 'Todo List',
 	'/gallery': 'Gallery',
 	'/about': 'About Us',
