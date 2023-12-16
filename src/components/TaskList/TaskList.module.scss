@@ -1,13 +1,14 @@
 .listItem {
 	display: flex;
 	justify-content: space-between;
-	align-items: stretch;
+	align-items: stretch !important;
 	width: 100%;
 }
 
 .text {
 	width: 80%;
 	display: inline-block;
+	text-align: start;
 }
 
 .date {
